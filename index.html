@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Favicon Sizes &amp; Formats Cheat Sheet (2026) — every icon size your website actually needs</title>
+<meta name="description" content="The complete favicon size and format reference: 16×16 to 512×512, ICO vs PNG vs SVG, apple-touch-icon, Android maskable icons, PWA manifest icons — with copy-paste HTML tags and free in-browser generators for every size.">
+<style>
+  :root { --ink:#1a2332; --mut:#5a6a7f; --line:#e3e8ef; --acc:#1f5e8c; --bg:#fbfcfd; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.65 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); }
+  main { max-width:880px; margin:0 auto; padding:32px 20px 80px; }
+  h1 { font-size:1.9rem; line-height:1.25; margin:.2em 0 .4em; }
+  h2 { font-size:1.25rem; margin:2.2em 0 .6em; padding-bottom:.25em; border-bottom:1px solid var(--line); }
+  p.lede { font-size:1.06rem; color:var(--mut); }
+  table { border-collapse:collapse; width:100%; margin:1em 0 1.4em; font-size:.93rem; background:#fff; }
+  th,td { border:1px solid var(--line); padding:.5em .65em; text-align:left; vertical-align:top; }
+  th { background:#f2f5f8; font-weight:600; }
+  code { background:#eef2f6; padding:.12em .35em; border-radius:4px; font-size:.88em; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }
+  pre { background:#122033; color:#dce8f5; padding:1em 1.2em; border-radius:8px; overflow-x:auto; font-size:.86rem; line-height:1.55; }
+  pre code { background:none; color:inherit; padding:0; }
+  a { color:var(--acc); }
+  .px { font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600; }
+  .note { background:#f2f7fb; border:1px solid #d7e5ef; border-radius:8px; padding:.9em 1.1em; margin:1.2em 0; font-size:.95rem; }
+  footer { margin-top:3em; padding-top:1.2em; border-top:2px solid var(--line); font-size:.92rem; color:var(--mut); }
+</style>
+</head>
+<body>
+<main>
+<h1>Favicon Sizes &amp; Formats Cheat Sheet</h1>
+<p class="lede">Every icon size a modern website ships in 2026, what each one is actually used for, which file format to pick, and the copy-paste tags that wire them up. Bookmark it — every linked generator runs <strong>100% in your browser</strong>, no account, nothing uploaded.</p>
+
+<h2>1 · The complete size table</h2>
+<table>
+  <tr><th>Size</th><th>Where it shows up</th><th>Generate it</th></tr>
+  <tr><td class="px">16×16</td><td>Browser tab, bookmarks bar, browser history entries</td><td><a href="https://favicon.one/size/16x16/">16×16 generator</a></td></tr>
+  <tr><td class="px">32×32</td><td>Taskbar pins, retina browser tabs, Safari reading list</td><td><a href="https://favicon.one/size/32x32/">32×32 generator</a></td></tr>
+  <tr><td class="px">48×48</td><td>Windows desktop shortcuts (inside the .ico)</td><td>included in multi-size <a href="https://favicon.one/convert/png-to-ico/">PNG→ICO</a></td></tr>
+  <tr><td class="px">64×64 / 96×96</td><td>Windows site tiles, higher-DPI toolbar icons</td><td>included in <a href="https://favicon.one/convert/png-to-ico/">.ico bundles</a></td></tr>
+  <tr><td class="px">120×120</td><td>Legacy iOS home-screen icon (pre-iOS 7 devices)</td><td>covered by the <a href="https://favicon.one/blog/apple-touch-icon-guide/">apple-touch-icon guide</a></td></tr>
+  <tr><td class="px">152×152</td><td>iPad home screen</td><td>same guide: <a href="https://favicon.one/blog/apple-touch-icon-guide/">touch icons</a></td></tr>
+  <tr><td class="px">167×167</td><td>iPad Pro home screen</td><td>same guide: <a href="https://favicon.one/blog/apple-touch-icon-guide/">touch icons</a></td></tr>
+  <tr><td class="px">180×180</td><td>iPhone / iPod touch home screen (the modern <code>apple-touch-icon</code>)</td><td><a href="https://favicon.one/blog/apple-touch-icon-guide/">180×180 how-to</a></td></tr>
+  <tr><td class="px">192×192</td><td>Android Chrome home screen, PWA manifest (required)</td><td><a href="https://favicon.one/size/192x192/">192×192 generator</a></td></tr>
+  <tr><td class="px">256×256</td><td>Hi-DPI Windows tiles, macOS dock previews</td><td>included in <a href="https://favicon.one/convert/png-to-ico/">.ico bundles</a></td></tr>
+  <tr><td class="px">512×512</td><td>PWA manifest (required), Android splash screen, app stores</td><td><a href="https://favicon.one/size/512x512/">512×512 generator</a></td></tr>
+</table>
+<p>Want the reasoning behind the ladder rather than just the numbers? The <a href="https://favicon.one/blog/favicon-size-guide/">favicon size guide</a> maps every size to its consumer, and <a href="https://favicon.one/what-is-a-favicon/">what a favicon actually is</a> covers the mechanics if you're new to this.</p>
+
+<h2>2 · Which file format?</h2>
+<table>
+  <tr><th>Format</th><th>Use it for</th><th>Caveat</th></tr>
+  <tr><td><code>.ico</code></td><td>The root <code>/favicon.ico</code> fallback every browser still requests</td><td>Only format some legacy tools read — bundle 16/32/48 inside one file: <a href="https://favicon.one/convert/png-to-ico/">PNG→ICO</a> · <a href="https://favicon.one/convert/svg-to-ico/">SVG→ICO</a></td></tr>
+  <tr><td><code>.png</code></td><td>Modern <code>&lt;link rel="icon"&gt;</code> sizes, touch icons, manifest icons</td><td>Transparency fine everywhere except apple-touch-icon</td></tr>
+  <tr><td><code>.svg</code></td><td>One scalable icon for supporting browsers — smallest maintenance</td><td>Safari only reads it via the <code>mask-icon</code> mechanism; details in <a href="https://favicon.one/blog/svg-vs-png-favicon/">SVG vs PNG favicons</a></td></tr>
+  <tr><td><code>.jpg</code></td><td>Nothing — no transparency, larger files</td><td>But if a logo only exists as JPG, convert it: <a href="https://favicon.one/convert/jpg-to-favicon/">JPG→favicon set</a></td></tr>
+</table>
+<div class="note"><strong>Rule of thumb:</strong> ship one <code>.ico</code> fallback + two PNGs (192, 512) + one 180 apple-touch-icon + (optionally) one SVG. That's five files, and it covers every browser, OS and store listing that matters in 2026.</div>
+
+<h2>3 · The minimal copy-paste tag set</h2>
+<pre><code>&lt;!-- Fallback for everything old --&gt;
+&lt;link rel="icon" href="/favicon.ico" sizes="48x48"&gt;
+
+&lt;!-- Modern scalable icon --&gt;
+&lt;link rel="icon" href="/icon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- High-DPI PNG sizes --&gt;
+&lt;link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192"&gt;
+&lt;link rel="icon" href="/icon-512.png" type="image/png" sizes="512x512"&gt;
+
+&lt;!-- iOS home screen --&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+<p>Placement rules, ordering, and which lines are safe to drop: <a href="https://favicon.one/blog/add-favicon-html/">adding a favicon in plain HTML</a>. Using a framework instead? <a href="https://favicon.one/blog/add-favicon-nextjs/">Next.js</a> and <a href="https://favicon.one/blog/add-favicon-react/">React</a> each have their own conventions.</p>
+
+<h2>4 · apple-touch-icon specifics (the one iOS reads)</h2>
+<ul>
+  <li>One file, 180×180, named <code>apple-touch-icon.png</code> at your site root — iOS finds it without a tag (a tag helps Android/Chrome pick it up too)</li>
+  <li><strong>No transparency</strong> — iOS composites transparent pixels onto black; export on your brand background</li>
+  <li>No rounding needed — iOS applies its own mask; pre-rounding gives you double-rounded corners</li>
+  <li>Full walkthrough with every gotcha: <a href="https://favicon.one/blog/apple-touch-icon-guide/">the apple-touch-icon guide</a></li>
+</ul>
+
+<h2>5 · PWA / Android notes</h2>
+<ul>
+  <li>Web app manifest requires <strong>192×192 and 512×512</strong> PNGs — generate: <a href="https://favicon.one/size/192x192/">192</a> · <a href="https://favicon.one/size/512x512/">512</a></li>
+  <li>Add <code>"purpose": "maskable"</code> variants with ~10% safe-zone padding so Android's circle mask doesn't crop your edges</li>
+  <li>Splash screens are built from the 512 icon + manifest <code>background_color</code>/<code>theme_color</code></li>
+  <li>Safari desktop dark-mode rendering is a separate mechanism: <a href="https://favicon.one/blog/dark-mode-favicon-safari/">mask-icon &amp; dark mode in Safari</a></li>
+</ul>
+
+<h2>6 · Generate everything in one pass</h2>
+<table>
+  <tr><th>Starting point</th><th>Tool</th></tr>
+  <tr><td>A logo image (PNG/JPG/SVG)</td><td><a href="https://favicon.one/">favicon.one</a> — upload once, export the full set + tags as a ZIP</td></tr>
+  <tr><td>Just a brand name</td><td><a href="https://favicon.one/text-to-favicon/">text-to-favicon generator</a> — lettermark with font &amp; color control</td></tr>
+  <tr><td>Nothing yet — want instant</td><td><a href="https://favicon.one/emoji-to-favicon/">emoji favicon generator</a> — any of 3,700+ emoji as a full icon set</td></tr>
+  <tr><td>An SVG you hand-drew</td><td><a href="https://favicon.one/svg-favicon-generator/">SVG favicon generator</a> — import, edit, export every size</td></tr>
+</table>
+
+<h2>7 · The three classics that bite everyone</h2>
+<ul>
+  <li><strong>Blurry on retina</strong> — you upscaled a small source. Fix: <a href="https://favicon.one/blog/favicon-blurry/">why favicons go blurry</a></li>
+  <li><strong>Invisible in dark browser themes</strong> — dark icon on dark UI. Fix: <a href="https://favicon.one/blog/favicon-dark-mode/">prefers-color-scheme SVG trick</a></li>
+  <li><strong>Old icon won't go away</strong> — cache, not code. Hard-reload, bust with <code>?v=2</code>; if it's still stuck, the full diagnosis lives in <a href="https://favicon.one/blog/favicon-not-showing/">favicon not showing: 10 causes</a></li>
+</ul>
+
+<h2>8 · Verify &amp; audit</h2>
+<ul>
+  <li>Check what your live site <em>actually</em> serves (declared vs resolved icons): <a href="https://favicon.one/favicon-checker/">Favicon Checker</a></li>
+  <li>Need the icon set from a site you don't own (competitive research): <a href="https://favicon.one/favicon-downloader/">Favicon Downloader</a></li>
+  <li>Converting rather than generating: <a href="https://favicon.one/blog/convert-png-to-favicon/">PNG→favicon walkthrough</a></li>
+</ul>
+
+<footer>
+  Part of a two-page favicon reference set — companion page: <a href="https://easy28.github.io/favicon-debugging-checklist/">The Favicon Debugging Checklist</a> (symptom → cause → fix). All generators linked above are free, browser-side, and require no signup.
+</footer>
+</main>
+</body>
+</html>
